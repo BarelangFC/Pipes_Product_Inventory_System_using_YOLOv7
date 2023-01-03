@@ -6,18 +6,22 @@ import time
 import cv2
 import numpy as np
 import darknet
+from datetime import datetime
+import csv
+# import mysql.connector
 
 
 def parser():
     parser = argparse.ArgumentParser(description="YOLO Object Detection")
-    parser.add_argument("--input", type=str, default="",
+    parser.add_argument("--input", type=str, default= "",
                         help="image source. It can be a single image, a"
                         "txt with paths to them, or a folder. Image valid"
                         " formats are jpg, jpeg or png."
                         "If no input is given, ")
+    # parser.add_argument("--input", type=str, default="/home/jodimas/riset_TA/test") #directly instead with one folder
     parser.add_argument("--batch_size", default=1, type=int,
                         help="number of images to be processed at the same time")
-    parser.add_argument("--weights", default="yolov4.weights",
+    parser.add_argument("--weights", default="v7-tiny/v7-tiny_best.weights",
                         help="yolo weights path")
     parser.add_argument("--dont_show", action='store_true',
                         help="windown inference display. For headless systems")
@@ -25,11 +29,11 @@ def parser():
                         help="display bbox coordinates of detected objects")
     parser.add_argument("--save_labels", action='store_true',
                         help="save detections bbox for each image in yolo format")
-    parser.add_argument("--config_file", default="./cfg/yolov4.cfg",
+    parser.add_argument("--config_file", default="./v7-tiny/v7-tiny.cfg",
                         help="path to config file")
-    parser.add_argument("--data_file", default="./cfg/coco.data",
+    parser.add_argument("--data_file", default="./obj.data",
                         help="path to data file")
-    parser.add_argument("--thresh", type=float, default=.25,
+    parser.add_argument("--thresh", type=float, default=.5,
                         help="remove detections with lower confidence")
     return parser.parse_args()
 
@@ -85,8 +89,7 @@ def prepare_batch(images, network, channels=3):
     darknet_images = []
     for image in images:
         image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-        image_resized = cv2.resize(image_rgb, (width, height),
-                                   interpolation=cv2.INTER_LINEAR)
+        image_resized = cv2.resize(image_rgb, (width, height), interpolation=cv2.INTER_LINEAR)
         custom_image = image_resized.transpose(2, 0, 1)
         darknet_images.append(custom_image)
 
@@ -99,31 +102,29 @@ def prepare_batch(images, network, channels=3):
 def image_detection(image_or_path, network, class_names, class_colors, thresh):
     # Darknet doesn't accept numpy images.
     # Create one with image we reuse for each detect
-    width = darknet.network_width(network)
-    height = darknet.network_height(network)
+    # width = darknet.network_width(network)
+    # height = darknet.network_height(network)
+    width = 680
+    height = 395
     darknet_image = darknet.make_image(width, height, 3)
 
-    if type(image_or_path) == "str":
-        image = cv2.imread(image_or_path)
-    else:
-        image = image_or_path
+    # if type(image_or_path) == "str":
+    image = cv2.imread(image_or_path)
+    # else:
+        # image = image_or_path
     image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    image_resized = cv2.resize(image_rgb, (width, height),
-                               interpolation=cv2.INTER_LINEAR)
-
+    image_resized = cv2.resize(image_rgb, (width, height), interpolation=cv2.INTER_LINEAR)
     darknet.copy_image_from_bytes(darknet_image, image_resized.tobytes())
     detections = darknet.detect_image(network, class_names, darknet_image, thresh=thresh)
     darknet.free_image(darknet_image)
-    image = darknet.draw_boxes(detections, image_resized, class_colors)
+    image = darknet.draw_boxes(detections, image_resized, class_colors)    
     return cv2.cvtColor(image, cv2.COLOR_BGR2RGB), detections
 
 
-def batch_detection(network, images, class_names, class_colors,
-                    thresh=0.25, hier_thresh=.5, nms=.45, batch_size=4):
+def batch_detection(network, images, class_names, class_colors, thresh=0.5, hier_thresh=.5, nms=.45, batch_size=4):
     image_height, image_width, _ = check_batch_shape(images, batch_size)
     darknet_images = prepare_batch(images, network)
-    batch_detections = darknet.network_predict_batch(network, darknet_images, batch_size, image_width,
-                                                     image_height, thresh, hier_thresh, None, 0, 0)
+    batch_detections = darknet.network_predict_batch(network, darknet_images, batch_size, image_width, image_height, thresh, hier_thresh, None, 0, 0)
     batch_predictions = []
     for idx in range(batch_size):
         num = batch_detections[idx].num
@@ -141,8 +142,7 @@ def image_classification(image, network, class_names):
     width = darknet.network_width(network)
     height = darknet.network_height(network)
     image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    image_resized = cv2.resize(image_rgb, (width, height),
-                                interpolation=cv2.INTER_LINEAR)
+    image_resized = cv2.resize(image_rgb, (width, height), interpolation=cv2.INTER_LINEAR)
     darknet_image = darknet.make_image(width, height, 3)
     darknet.copy_image_from_bytes(darknet_image, image_resized.tobytes())
     detections = darknet.predict_image(network, darknet_image)
@@ -170,6 +170,7 @@ def save_annotations(name, image, detections, class_names):
             x, y, w, h = convert2relative(image, bbox)
             label = class_names.index(label)
             f.write("{} {:.4f} {:.4f} {:.4f} {:.4f} {:.4f}\n".format(label, x, y, w, h, float(confidence)))
+            # f.write("{} {:.4f} {:.4f} {:.4f} {:.4f}\n".format(label, x, y, w, h))
 
 
 def batch_detection_example():
@@ -185,8 +186,7 @@ def batch_detection_example():
     )
     image_names = ['data/horses.jpg', 'data/horses.jpg', 'data/eagle.jpg']
     images = [cv2.imread(image) for image in image_names]
-    images, detections,  = batch_detection(network, images, class_names,
-                                           class_colors, batch_size=batch_size)
+    images, detections,  = batch_detection(network, images, class_names, class_colors, batch_size=batch_size)
     for name, image in zip(image_names, images):
         cv2.imwrite(name.replace("data/", ""), image)
     print(detections)
@@ -196,14 +196,15 @@ def main():
     args = parser()
     check_arguments_errors(args)
 
-    random.seed(3)  # deterministic bbox colors
+    random.seed(4)  # deterministic bbox colors
+    
     network, class_names, class_colors = darknet.load_network(
         args.config_file,
         args.data_file,
         args.weights,
         batch_size=args.batch_size
     )
-
+    
     images = load_images(args.input)
 
     index = 0
@@ -216,16 +217,61 @@ def main():
         else:
             image_name = input("Enter Image Path: ")
         prev_time = time.time()
-        image, detections = image_detection(
-            image_name, network, class_names, class_colors, args.thresh
-            )
+        
+        image, detections = image_detection(image_name, network, class_names, class_colors, args.thresh)
         if args.save_labels:
             save_annotations(image_name, image, detections, class_names)
-        darknet.print_detections(detections, args.ext_output)
-        fps = int(1/(time.time() - prev_time))
-        print("FPS: {}".format(fps))
+        # darknet.print_detections(detections, args.ext_output)
+        # print("\n")
+        # fps = int(1/(time.time() - prev_time))
+        # print("FPS: {}".format(fps))
+
+        now = datetime.now()
+        # dd/mm/YY H:M:S
+        d_string = now.strftime("%d/%m/%Y") #date output
+        # d_string = now.strftime("%Y/%m/%d") #date output
+        t_string = now.strftime("%H:%M:%S") #time output
+        
+        # print(detections)
+        len(detections) #length of detections
+        # ListName = [detections]
+        # count=len(detections)
+
+        # print("********************************************************************************")
+        print("\n")
+        print("Welcome To Pipes Product Inventory System Using YOLOv7")
+        print("Pipes Product Detected !!!")
+        print("Date      =", d_string + "\nTime      =", t_string + "\nFile Name =", image_name + "\nCounter   =", len(detections))
+        
+        # print("Date:", d_string + " \nTime:", t_string + " \nFile Name:", image_name + " \nCounter:", len(detections))
+       
+        with open('output_v7-tiny.csv', mode='a') as f:
+            keys = ['Date', 'Time', 'File Name', 'Counter']
+            writer = csv.DictWriter(f, fieldnames=keys)
+            # writer.writeheader() # add column names in the CSV file
+            writer.writerow({'Date': d_string, 'Time': t_string, 'File Name': image_name, 'Counter': len(detections)})
+
+        # # untuk record ke database
+        # mydb = mysql.connector.connect(
+        #     host="localhost",
+        #     user="root",
+        #     password="",
+        #     database="inventory_system"
+        # )
+        # mycursor = mydb.cursor()
+        # sql = "INSERT INTO pipe_counter (date, time, file_name, counter) VALUES (%s, %s, %s, %s)"
+        # val = (d_string, t_string, image_name, count)
+        # mycursor.execute(sql, val)
+        # mydb.commit()
+        # print("Successfully Record To Database")
+        # # print(mycursor.rowcount, "record inserted.")
+        # # untuk database
+
+        # print("length: ", len(ListName))
+        # print(args.data_file)
+        
         if not args.dont_show:
-            cv2.imshow('Inference', image)
+            cv2.imshow('Pipes Product Inventory System Using YOLOv7', image)            
             if cv2.waitKey() & 0xFF == ord('q'):
                 break
         index += 1

@@ -1,0 +1,4 @@
+pyuic5 -x nama_file.ui -o nama_file.py
+
+contoh:
+pyuic5 -x tes.ui -o tes.py

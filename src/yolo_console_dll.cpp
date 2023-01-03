@@ -9,7 +9,9 @@
 #include <atomic>
 #include <mutex>         // std::mutex, std::unique_lock
 #include <cmath>
+using namespace std;
 
+bool use_GUI = false;
 
 // It makes sense only for video-Camera (not for video-File)
 // To use - uncomment the following line. Optical-flow is supported only by OpenCV 3.x - 4.x
@@ -18,7 +20,6 @@
 
 // To use 3D-stereo camera ZED - uncomment the following line. ZED_SDK should be installed.
 //#define ZED_STEREO
-
 
 #include "yolo_v2_class.hpp"    // imported functions from DLL
 
@@ -148,7 +149,6 @@ std::vector<bbox_t> get_3d_coordinates(std::vector<bbox_t> bbox_vect, cv::Mat xy
 }
 #endif  // ZED_STEREO
 
-
 #include <opencv2/opencv.hpp>            // C++
 #include <opencv2/core/version.hpp>
 #ifndef CV_VERSION_EPOCH     // OpenCV 3.x and 4.x
@@ -176,7 +176,6 @@ std::vector<bbox_t> get_3d_coordinates(std::vector<bbox_t> bbox_vect, cv::Mat xy
 #endif    // USE_CMAKE_LIBS
 #endif    // CV_VERSION_EPOCH
 
-
 void draw_boxes(cv::Mat mat_img, std::vector<bbox_t> result_vec, std::vector<std::string> obj_names,
     int current_det_fps = -1, int current_cap_fps = -1)
 {
@@ -187,7 +186,8 @@ void draw_boxes(cv::Mat mat_img, std::vector<bbox_t> result_vec, std::vector<std
         cv::rectangle(mat_img, cv::Rect(i.x, i.y, i.w, i.h), color, 2);
         if (obj_names.size() > i.obj_id) {
             std::string obj_name = obj_names[i.obj_id];
-            if (i.track_id > 0) obj_name += " - " + std::to_string(i.track_id);
+            //obj_name += "-" + std::to_string((int)(i.prob * 100)) + "%";
+            // if (i.track_id > 0) obj_name += "-" + std::to_string(i.track_id);
             cv::Size const text_size = getTextSize(obj_name, cv::FONT_HERSHEY_COMPLEX_SMALL, 1.2, 2, 0);
             int max_width = (text_size.width > i.w + 2) ? text_size.width : (i.w + 2);
             max_width = std::max(max_width, (int)i.w + 2);
@@ -195,7 +195,7 @@ void draw_boxes(cv::Mat mat_img, std::vector<bbox_t> result_vec, std::vector<std
             std::string coords_3d;
             if (!std::isnan(i.z_3d)) {
                 std::stringstream ss;
-                ss << std::fixed << std::setprecision(2) << "x:" << i.x_3d << "m y:" << i.y_3d << "m z:" << i.z_3d << "m ";
+                //ss << std::fixed << std::setprecision(2) << "x:" << i.x_3d << "m y:" << i.y_3d << "m z:" << i.z_3d << "m ";
                 coords_3d = ss.str();
                 cv::Size const text_size_3d = getTextSize(ss.str(), cv::FONT_HERSHEY_COMPLEX_SMALL, 0.8, 1, 0);
                 int const max_width_3d = (text_size_3d.width > i.w + 2) ? text_size_3d.width : (i.w + 2);
@@ -216,14 +216,21 @@ void draw_boxes(cv::Mat mat_img, std::vector<bbox_t> result_vec, std::vector<std
 }
 #endif    // OPENCV
 
-
 void show_console_result(std::vector<bbox_t> const result_vec, std::vector<std::string> const obj_names, int frame_id = -1) {
-    if (frame_id >= 0) std::cout << " Frame: " << frame_id << std::endl;
+    //cout << "Artificial Intelligence - Pipe Counting" << endl;
+    //if (frame_id >= 0) std::cout << " Frame: " << frame_id << std::endl;
     for (auto &i : result_vec) {
-        if (obj_names.size() > i.obj_id) std::cout << obj_names[i.obj_id] << " - ";
-        std::cout << "obj_id = " << i.obj_id << ",  x = " << i.x << ", y = " << i.y
-            << ", w = " << i.w << ", h = " << i.h
-            << std::setprecision(3) << ", prob = " << i.prob << std::endl;
+        //if (obj_names.size() > i.obj_id) std::cout << obj_names[i.obj_id] << " - ";
+        // if (obj_names.size() > i.obj_id) std::cout << "Detect " << obj_names[i.obj_id];
+        //std::cout << "obj_id = " << i.obj_id <<endl;
+        cout <<"; Counting = " << i.track_id;
+        cout << std::setprecision(3) << "; Prob = " << int(i.prob*100) << "%" << endl;
+        //<< "; X = " << i.x << "; Y = " << i.y <<"; W = "<< i.w <<"; H = "<< i.h;
+   
+        fstream myfile;
+        myfile.open ("result.xlsx", ios::app); //app, trunc, out
+        myfile << "Detect " << obj_names[i.obj_id] <<"; Counting = " << i.track_id << std::setprecision(3) << "; Prob = " << int(i.prob*100) << "%" << endl;
+        myfile.close();  
     }
 }
 
@@ -232,7 +239,7 @@ std::vector<std::string> objects_names_from_file(std::string const filename) {
     std::vector<std::string> file_lines;
     if (!file.is_open()) return file_lines;
     for(std::string line; getline(file, line);) file_lines.push_back(line);
-    std::cout << "object names loaded \n";
+    //std::cout << "object names loaded \n";
     return file_lines;
 }
 
@@ -271,12 +278,12 @@ public:
 
 int main(int argc, char *argv[])
 {
-    std::string  names_file = "data/coco.names";
-    std::string  cfg_file = "cfg/yolov3.cfg";
-    std::string  weights_file = "yolov3.weights";
+    std::string names_file = "data/coco.names";
+    std::string cfg_file = "cfg/yolov3.cfg";
+    std::string weights_file = "yolov3.weights";
     std::string filename;
 
-    if (argc > 4) {    //voc.names yolo-voc.cfg yolo-voc.weights test.mp4
+    if (argc > 4) { //voc.names yolo-voc.cfg yolo-voc.weights test.mp4
         names_file = argv[1];
         cfg_file = argv[2];
         weights_file = argv[3];
@@ -295,16 +302,20 @@ int main(int argc, char *argv[])
     bool const use_kalman_filter = false;   // true - for stationary camera
 
     bool detection_sync = true;             // true - for video-file
-#ifdef TRACK_OPTFLOW    // for slow GPU
+#ifdef TRACK_OPTFLOW    // for slow
     detection_sync = false;
     Tracker_optflow tracker_flow;
     //detector.wait_stream = true;
 #endif  // TRACK_OPTFLOW
 
-
+if(use_GUI) {
+	cv::namedWindow("Artificial Intelligence - Pipe Counting", CV_WINDOW_NORMAL);
+	cv::moveWindow("Artificial Intelligence - Pipe Counting", 0, 0);
+	cv::resizeWindow("Artificial Intelligence - Pipe Counting", 1500, 800);
+}
     while (true)
     {
-        std::cout << "input image or video filename: ";
+        //std::cout << "input image or video filename: ";
         if(filename.size() == 0) std::cin >> filename;
         if (filename.size() == 0) break;
 
@@ -362,10 +373,13 @@ int main(int argc, char *argv[])
                     use_zed_camera = true;
                 }
 #endif  // ZED_STEREO
-
                 cv::VideoCapture cap;
                 if (filename == "web_camera") {
-                    cap.open(0);
+                    cap.open(1);
+                    cap.set(cv::CAP_PROP_FRAME_WIDTH, 1600);
+                    cap.set(cv::CAP_PROP_FRAME_HEIGHT,900);
+		     //cap.set(CV_CAP_PROP_FRAME_WIDTH, 1600);
+		     //cap.set(CV_CAP_PROP_FRAME_HEIGHT,900);
                     cap >> cur_frame;
                 } else if (!use_zed_camera) {
                     cap.open(filename);
@@ -378,7 +392,7 @@ int main(int argc, char *argv[])
 #endif
                 cv::Size const frame_size = cur_frame.size();
                 //cv::Size const frame_size(cap.get(CV_CAP_PROP_FRAME_WIDTH), cap.get(CV_CAP_PROP_FRAME_HEIGHT));
-                std::cout << "\n Video size: " << frame_size << std::endl;
+                //std::cout << "\n Video size: " << frame_size << std::endl;
 
                 cv::VideoWriter output_video;
                 if (save_output_videofile)
@@ -435,7 +449,7 @@ int main(int argc, char *argv[])
                         fps_cap_counter++;
                         detection_data.frame_id = frame_id++;
                         if (detection_data.cap_frame.empty() || exit_flag) {
-                            std::cout << " exit_flag: detection_data.cap_frame.size = " << detection_data.cap_frame.size() << std::endl;
+                            //std::cout << " exit_flag: detection_data.cap_frame.size = " << detection_data.cap_frame.size() << std::endl;
                             detection_data.exit_flag = true;
                             detection_data.cap_frame = cv::Mat(frame_size, CV_8UC3);
                         }
@@ -445,9 +459,8 @@ int main(int argc, char *argv[])
                         }
                         cap2prepare.send(detection_data);
                     } while (!detection_data.exit_flag);
-                    std::cout << " t_cap exit \n";
+                    //std::cout << " t_cap exit \n";
                 });
-
 
                 // pre-processing video frame (resize, convertion)
                 t_prepare = std::thread([&]()
@@ -462,9 +475,8 @@ int main(int argc, char *argv[])
                         prepare2detect.send(detection_data);    // detection
 
                     } while (!detection_data.exit_flag);
-                    std::cout << " t_prepare exit \n";
+                    //std::cout << " t_prepare exit \n";
                 });
-
 
                 // detection by Yolo
                 if (t_detect.joinable()) t_detect.join();
@@ -486,7 +498,7 @@ int main(int argc, char *argv[])
                         detection_data.result_vec = result_vec;
                         detect2draw.send(detection_data);
                     } while (!detection_data.exit_flag);
-                    std::cout << " t_detect exit \n";
+                    //std::cout << " t_detect exit \n";
                 });
 
                 // draw rectangles (and track objects)
@@ -495,7 +507,6 @@ int main(int argc, char *argv[])
                     std::queue<cv::Mat> track_optflow_queue;
                     detection_data_t detection_data;
                     do {
-
                         // for Video-file
                         if (detection_sync) {
                             detection_data = detect2draw.receive();
@@ -550,16 +561,17 @@ int main(int argc, char *argv[])
                         else {
                             int frame_story = std::max(5, current_fps_cap.load());
                             result_vec = detector.tracking_id(result_vec, true, frame_story, 40);
-                        }
+                        }                        
 
                         if (use_zed_camera && !detection_data.zed_cloud.empty()) {
                             result_vec = get_3d_coordinates(result_vec, detection_data.zed_cloud);
                         }
-
                         //small_preview.set(draw_frame, result_vec);
                         //large_preview.set(draw_frame, result_vec);
                         draw_boxes(draw_frame, result_vec, obj_names, current_fps_det, current_fps_cap);
-                        //show_console_result(result_vec, obj_names, detection_data.frame_id);
+                        //draw_boxes(draw_frame, result_vec, obj_names);
+                        //show_console_result(result_vec, obj_names);
+                        show_console_result(result_vec, obj_names, detection_data.frame_id);
                         //large_preview.draw(draw_frame);
                         //small_preview.draw(draw_frame, true);
 
@@ -568,10 +580,9 @@ int main(int argc, char *argv[])
                         draw2show.send(detection_data);
                         if (send_network) draw2net.send(detection_data);
                         if (output_video.isOpened()) draw2write.send(detection_data);
-                    } while (!detection_data.exit_flag);
-                    std::cout << " t_draw exit \n";
+                    } while (!detection_data.exit_flag);                    
+                    //std::cout << " t_draw exit \n";
                 });
-
 
                 // write frame to videofile
                 t_write = std::thread([&]()
@@ -587,7 +598,7 @@ int main(int argc, char *argv[])
                         } while (!detection_data.exit_flag);
                         output_video.release();
                     }
-                    std::cout << " t_write exit \n";
+                    //std::cout << " t_write exit \n";
                 });
 
                 // send detection to the network
@@ -602,9 +613,8 @@ int main(int argc, char *argv[])
 
                         } while (!detection_data.exit_flag);
                     }
-                    std::cout << " t_network exit \n";
+                    //std::cout << " t_network exit \n";
                 });
-
 
                 // show detection
                 detection_data_t detection_data;
@@ -627,18 +637,17 @@ int main(int argc, char *argv[])
                     //    cv::putText(draw_frame, "extrapolate", cv::Point2f(10, 40), cv::FONT_HERSHEY_COMPLEX_SMALL, 1.0, cv::Scalar(50, 50, 0), 2);
                     //}
 
-                    cv::imshow("window name", draw_frame);
+                    //if (use_GUI) 
+                    cv::imshow("Artificial Intelligence - Pipe Counting", draw_frame);
                     int key = cv::waitKey(3);    // 3 or 16ms
                     if (key == 'f') show_small_boxes = !show_small_boxes;
                     if (key == 'p') while (true) if (cv::waitKey(100) == 'p') break;
                     //if (key == 'e') extrapolate_flag = !extrapolate_flag;
                     if (key == 27) { exit_flag = true;}
-
                     //std::cout << " current_fps_det = " << current_fps_det << ", current_fps_cap = " << current_fps_cap << std::endl;
                 } while (!detection_data.exit_flag);
-                std::cout << " show detection exit \n";
-
-                cv::destroyWindow("window name");
+                //std::cout << " show detection exit \n";
+                cv::destroyWindow("Artificial Intelligence - Pipe Counting");
                 // wait for all threads
                 if (t_cap.joinable()) t_cap.join();
                 if (t_prepare.joinable()) t_prepare.join();
@@ -647,9 +656,7 @@ int main(int argc, char *argv[])
                 if (t_draw.joinable()) t_draw.join();
                 if (t_write.joinable()) t_write.join();
                 if (t_network.joinable()) t_network.join();
-
                 break;
-
             }
             else if (file_ext == "txt") {    // list of image files
                 std::ifstream file(filename);
@@ -660,10 +667,9 @@ int main(int argc, char *argv[])
                         cv::Mat mat_img = cv::imread(line);
                         std::vector<bbox_t> result_vec = detector.detect(mat_img);
                         show_console_result(result_vec, obj_names);
-                        //draw_boxes(mat_img, result_vec, obj_names);
-                        //cv::imwrite("res_" + line, mat_img);
+                        draw_boxes(mat_img, result_vec, obj_names);
+                        cv::imwrite("res_" + line, mat_img);
                     }
-
             }
             else {    // image file
                 // to achive high performance for multiple images do these 2 lines in another thread
@@ -676,15 +682,14 @@ int main(int argc, char *argv[])
                 std::chrono::duration<double> spent = end - start;
                 std::cout << " Time: " << spent.count() << " sec \n";
 
-                //result_vec = detector.tracking_id(result_vec);    // comment it - if track_id is not required
+                result_vec = detector.tracking_id(result_vec);    // comment it - if track_id is not required
                 draw_boxes(mat_img, result_vec, obj_names);
-                cv::imshow("window name", mat_img);
+                cv::imshow("Artificial Intelligence - Pipe Counting", mat_img);
                 show_console_result(result_vec, obj_names);
                 cv::waitKey(0);
             }
 #else   // OPENCV
             //std::vector<bbox_t> result_vec = detector.detect(filename);
-
             auto img = detector.load_image(filename);
             std::vector<bbox_t> result_vec = detector.detect(img);
             detector.free_image(img);
@@ -695,6 +700,5 @@ int main(int argc, char *argv[])
         catch (...) { std::cerr << "unknown exception \n"; getchar(); }
         filename.clear();
     }
-
     return 0;
 }

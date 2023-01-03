@@ -1,0 +1,572 @@
+ Used GPU 0 
+net.optimized_memory = 0 
+mini_batch = 1, batch = 8, time_steps = 1, train = 0 
+Create CUDA-stream - 0 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+
+ seen 64, trained: 13 K-images (0 Kilo-batches_64) 
+
+ try to allocate additional workspace_size = 235.93 MB 
+ CUDA allocate done! 
+ Time: 0.349497 sec 
+Detect Pipe; Counting = 1; Prob = 58%
+Detect Pipe; Counting = 2; Prob = 42%
+Detect Pipe; Counting = 3; Prob = 40%
+Detect Pipe; Counting = 4; Prob = 39%
+Detect Pipe; Counting = 5; Prob = 37%
+Detect Pipe; Counting = 6; Prob = 36%
+Detect Pipe; Counting = 7; Prob = 35%
+Detect Pipe; Counting = 8; Prob = 33%
+Detect Pipe; Counting = 9; Prob = 32%
+Detect Pipe; Counting = 10; Prob = 32%
+Detect Pipe; Counting = 11; Prob = 31%
+Detect Pipe; Counting = 12; Prob = 30%
+Detect Pipe; Counting = 13; Prob = 29%
+Detect Pipe; Counting = 14; Prob = 26%
+Detect Pipe; Counting = 15; Prob = 25%
+Detect Pipe; Counting = 16; Prob = 25%
+Detect Pipe; Counting = 17; Prob = 24%
+Detect Pipe; Counting = 18; Prob = 24%
+Detect Pipe; Counting = 19; Prob = 23%
+Detect Pipe; Counting = 20; Prob = 23%
+Detect Pipe; Counting = 21; Prob = 22%
+Detect Pipe; Counting = 22; Prob = 21%
+ Used GPU 0 
+net.optimized_memory = 0 
+mini_batch = 1, batch = 8, time_steps = 1, train = 0 
+Create CUDA-stream - 0 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+
+ seen 64, trained: 13 K-images (0 Kilo-batches_64) 
+
+ try to allocate additional workspace_size = 235.93 MB 
+ CUDA allocate done! 
+ Time: 0.363552 sec 
+Detect Pipe; Counting = 1; Prob = 82%
+Detect Pipe; Counting = 2; Prob = 81%
+Detect Pipe; Counting = 3; Prob = 81%
+Detect Pipe; Counting = 4; Prob = 80%
+Detect Pipe; Counting = 5; Prob = 80%
+Detect Pipe; Counting = 6; Prob = 80%
+Detect Pipe; Counting = 7; Prob = 79%
+Detect Pipe; Counting = 8; Prob = 78%
+Detect Pipe; Counting = 9; Prob = 77%
+Detect Pipe; Counting = 10; Prob = 77%
+Detect Pipe; Counting = 11; Prob = 76%
+Detect Pipe; Counting = 12; Prob = 76%
+Detect Pipe; Counting = 13; Prob = 76%
+Detect Pipe; Counting = 14; Prob = 75%
+Detect Pipe; Counting = 15; Prob = 74%
+Detect Pipe; Counting = 16; Prob = 74%
+Detect Pipe; Counting = 17; Prob = 73%
+Detect Pipe; Counting = 18; Prob = 73%
+Detect Pipe; Counting = 19; Prob = 72%
+Detect Pipe; Counting = 20; Prob = 71%
+Detect Pipe; Counting = 21; Prob = 71%
+Detect Pipe; Counting = 22; Prob = 70%
+Detect Pipe; Counting = 23; Prob = 70%
+Detect Pipe; Counting = 24; Prob = 70%
+Detect Pipe; Counting = 25; Prob = 69%
+Detect Pipe; Counting = 26; Prob = 69%
+Detect Pipe; Counting = 27; Prob = 68%
+Detect Pipe; Counting = 28; Prob = 68%
+Detect Pipe; Counting = 29; Prob = 67%
+Detect Pipe; Counting = 30; Prob = 66%
+Detect Pipe; Counting = 31; Prob = 65%
+Detect Pipe; Counting = 32; Prob = 65%
+Detect Pipe; Counting = 33; Prob = 65%
+Detect Pipe; Counting = 34; Prob = 65%
+Detect Pipe; Counting = 35; Prob = 65%
+Detect Pipe; Counting = 36; Prob = 64%
+Detect Pipe; Counting = 37; Prob = 64%
+Detect Pipe; Counting = 38; Prob = 63%
+Detect Pipe; Counting = 39; Prob = 63%
+Detect Pipe; Counting = 40; Prob = 62%
+Detect Pipe; Counting = 41; Prob = 61%
+Detect Pipe; Counting = 42; Prob = 61%
+Detect Pipe; Counting = 43; Prob = 60%
+Detect Pipe; Counting = 44; Prob = 59%
+Detect Pipe; Counting = 45; Prob = 59%
+Detect Pipe; Counting = 46; Prob = 59%
+Detect Pipe; Counting = 47; Prob = 59%
+Detect Pipe; Counting = 48; Prob = 57%
+Detect Pipe; Counting = 49; Prob = 57%
+Detect Pipe; Counting = 50; Prob = 57%
+Detect Pipe; Counting = 51; Prob = 57%
+Detect Pipe; Counting = 52; Prob = 56%
+Detect Pipe; Counting = 53; Prob = 56%
+Detect Pipe; Counting = 54; Prob = 55%
+Detect Pipe; Counting = 55; Prob = 55%
+Detect Pipe; Counting = 56; Prob = 54%
+Detect Pipe; Counting = 57; Prob = 54%
+Detect Pipe; Counting = 58; Prob = 53%
+Detect Pipe; Counting = 59; Prob = 53%
+Detect Pipe; Counting = 60; Prob = 53%
+Detect Pipe; Counting = 61; Prob = 52%
+Detect Pipe; Counting = 62; Prob = 52%
+Detect Pipe; Counting = 63; Prob = 52%
+Detect Pipe; Counting = 64; Prob = 51%
+Detect Pipe; Counting = 65; Prob = 50%
+Detect Pipe; Counting = 66; Prob = 49%
+Detect Pipe; Counting = 67; Prob = 48%
+Detect Pipe; Counting = 68; Prob = 48%
+Detect Pipe; Counting = 69; Prob = 48%
+Detect Pipe; Counting = 70; Prob = 47%
+Detect Pipe; Counting = 71; Prob = 46%
+Detect Pipe; Counting = 72; Prob = 46%
+Detect Pipe; Counting = 73; Prob = 46%
+Detect Pipe; Counting = 74; Prob = 45%
+Detect Pipe; Counting = 75; Prob = 44%
+Detect Pipe; Counting = 76; Prob = 44%
+Detect Pipe; Counting = 77; Prob = 42%
+Detect Pipe; Counting = 78; Prob = 41%
+Detect Pipe; Counting = 79; Prob = 41%
+Detect Pipe; Counting = 80; Prob = 40%
+Detect Pipe; Counting = 81; Prob = 40%
+Detect Pipe; Counting = 82; Prob = 40%
+Detect Pipe; Counting = 83; Prob = 40%
+Detect Pipe; Counting = 84; Prob = 39%
+Detect Pipe; Counting = 85; Prob = 38%
+Detect Pipe; Counting = 86; Prob = 37%
+Detect Pipe; Counting = 87; Prob = 37%
+Detect Pipe; Counting = 88; Prob = 37%
+Detect Pipe; Counting = 89; Prob = 37%
+Detect Pipe; Counting = 90; Prob = 36%
+Detect Pipe; Counting = 91; Prob = 35%
+Detect Pipe; Counting = 92; Prob = 34%
+Detect Pipe; Counting = 93; Prob = 34%
+Detect Pipe; Counting = 94; Prob = 31%
+Detect Pipe; Counting = 95; Prob = 31%
+Detect Pipe; Counting = 96; Prob = 28%
+Detect Pipe; Counting = 97; Prob = 26%
+Detect Pipe; Counting = 98; Prob = 26%
+Detect Pipe; Counting = 99; Prob = 25%
+Detect Pipe; Counting = 100; Prob = 24%
+Detect Pipe; Counting = 101; Prob = 24%
+Detect Pipe; Counting = 102; Prob = 22%
+Detect Pipe; Counting = 103; Prob = 22%
+Detect Pipe; Counting = 104; Prob = 20%
+ Used GPU 0 
+net.optimized_memory = 0 
+mini_batch = 1, batch = 8, time_steps = 1, train = 0 
+Create CUDA-stream - 0 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+
+ seen 64, trained: 13 K-images (0 Kilo-batches_64) 
+
+ try to allocate additional workspace_size = 235.93 MB 
+ CUDA allocate done! 
+ Time: 0.365153 sec 
+Detect Pipe; Counting = 1; Prob = 85%
+Detect Pipe; Counting = 2; Prob = 85%
+Detect Pipe; Counting = 3; Prob = 85%
+Detect Pipe; Counting = 4; Prob = 85%
+Detect Pipe; Counting = 5; Prob = 85%
+Detect Pipe; Counting = 6; Prob = 85%
+Detect Pipe; Counting = 7; Prob = 84%
+Detect Pipe; Counting = 8; Prob = 84%
+Detect Pipe; Counting = 9; Prob = 84%
+Detect Pipe; Counting = 10; Prob = 84%
+Detect Pipe; Counting = 11; Prob = 84%
+Detect Pipe; Counting = 12; Prob = 84%
+Detect Pipe; Counting = 13; Prob = 84%
+Detect Pipe; Counting = 14; Prob = 84%
+Detect Pipe; Counting = 15; Prob = 84%
+Detect Pipe; Counting = 16; Prob = 84%
+Detect Pipe; Counting = 17; Prob = 84%
+Detect Pipe; Counting = 18; Prob = 84%
+Detect Pipe; Counting = 19; Prob = 84%
+Detect Pipe; Counting = 20; Prob = 84%
+Detect Pipe; Counting = 21; Prob = 84%
+Detect Pipe; Counting = 22; Prob = 84%
+Detect Pipe; Counting = 23; Prob = 84%
+Detect Pipe; Counting = 24; Prob = 84%
+Detect Pipe; Counting = 25; Prob = 84%
+Detect Pipe; Counting = 26; Prob = 84%
+Detect Pipe; Counting = 27; Prob = 84%
+Detect Pipe; Counting = 28; Prob = 84%
+Detect Pipe; Counting = 29; Prob = 83%
+Detect Pipe; Counting = 30; Prob = 83%
+Detect Pipe; Counting = 31; Prob = 83%
+Detect Pipe; Counting = 32; Prob = 83%
+Detect Pipe; Counting = 33; Prob = 83%
+Detect Pipe; Counting = 34; Prob = 83%
+Detect Pipe; Counting = 35; Prob = 83%
+Detect Pipe; Counting = 36; Prob = 83%
+Detect Pipe; Counting = 37; Prob = 83%
+Detect Pipe; Counting = 38; Prob = 83%
+Detect Pipe; Counting = 39; Prob = 83%
+Detect Pipe; Counting = 40; Prob = 83%
+Detect Pipe; Counting = 41; Prob = 82%
+Detect Pipe; Counting = 42; Prob = 82%
+Detect Pipe; Counting = 43; Prob = 82%
+Detect Pipe; Counting = 44; Prob = 82%
+Detect Pipe; Counting = 45; Prob = 82%
+Detect Pipe; Counting = 46; Prob = 82%
+Detect Pipe; Counting = 47; Prob = 82%
+Detect Pipe; Counting = 48; Prob = 82%
+Detect Pipe; Counting = 49; Prob = 82%
+Detect Pipe; Counting = 50; Prob = 81%
+Detect Pipe; Counting = 51; Prob = 81%
+Detect Pipe; Counting = 52; Prob = 81%
+Detect Pipe; Counting = 53; Prob = 81%
+Detect Pipe; Counting = 54; Prob = 80%
+Detect Pipe; Counting = 55; Prob = 78%
+Detect Pipe; Counting = 56; Prob = 76%
+Detect Pipe; Counting = 57; Prob = 76%
+Detect Pipe; Counting = 58; Prob = 75%
+Detect Pipe; Counting = 59; Prob = 64%
+Detect Pipe; Counting = 60; Prob = 20%
+ Used GPU 0 
+net.optimized_memory = 0 
+mini_batch = 1, batch = 8, time_steps = 1, train = 0 
+Create CUDA-stream - 0 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+
+ seen 64, trained: 13 K-images (0 Kilo-batches_64) 
+
+ try to allocate additional workspace_size = 235.93 MB 
+ CUDA allocate done! 
+ Time: 0.351177 sec 
+Detect Pipe; Counting = 1; Prob = 88%
+Detect Pipe; Counting = 2; Prob = 88%
+Detect Pipe; Counting = 3; Prob = 88%
+Detect Pipe; Counting = 4; Prob = 87%
+Detect Pipe; Counting = 5; Prob = 86%
+Detect Pipe; Counting = 6; Prob = 85%
+Detect Pipe; Counting = 7; Prob = 85%
+Detect Pipe; Counting = 8; Prob = 84%
+ Used GPU 0 
+net.optimized_memory = 0 
+mini_batch = 1, batch = 8, time_steps = 1, train = 0 
+Create CUDA-stream - 0 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+
+ seen 64, trained: 13 K-images (0 Kilo-batches_64) 
+
+ try to allocate additional workspace_size = 235.93 MB 
+ CUDA allocate done! 
+ Time: 0.345955 sec 
+Detect Pipe; Counting = 1; Prob = 72%
+Detect Pipe; Counting = 2; Prob = 70%
+Detect Pipe; Counting = 3; Prob = 66%
+Detect Pipe; Counting = 4; Prob = 66%
+Detect Pipe; Counting = 5; Prob = 66%
+Detect Pipe; Counting = 6; Prob = 62%
+Detect Pipe; Counting = 7; Prob = 58%
+Detect Pipe; Counting = 8; Prob = 58%
+Detect Pipe; Counting = 9; Prob = 54%
+Detect Pipe; Counting = 10; Prob = 54%
+Detect Pipe; Counting = 11; Prob = 50%
+Detect Pipe; Counting = 12; Prob = 48%
+Detect Pipe; Counting = 13; Prob = 48%
+Detect Pipe; Counting = 14; Prob = 46%
+Detect Pipe; Counting = 15; Prob = 45%
+Detect Pipe; Counting = 16; Prob = 44%
+Detect Pipe; Counting = 17; Prob = 43%
+Detect Pipe; Counting = 18; Prob = 42%
+Detect Pipe; Counting = 19; Prob = 40%
+Detect Pipe; Counting = 20; Prob = 40%
+Detect Pipe; Counting = 21; Prob = 38%
+Detect Pipe; Counting = 22; Prob = 37%
+Detect Pipe; Counting = 23; Prob = 36%
+Detect Pipe; Counting = 24; Prob = 35%
+Detect Pipe; Counting = 25; Prob = 34%
+Detect Pipe; Counting = 26; Prob = 30%
+Detect Pipe; Counting = 27; Prob = 30%
+Detect Pipe; Counting = 28; Prob = 29%
+Detect Pipe; Counting = 29; Prob = 29%
+Detect Pipe; Counting = 30; Prob = 29%
+Detect Pipe; Counting = 31; Prob = 28%
+Detect Pipe; Counting = 32; Prob = 25%
+Detect Pipe; Counting = 33; Prob = 25%
+Detect Pipe; Counting = 34; Prob = 25%
+Detect Pipe; Counting = 35; Prob = 24%
+Detect Pipe; Counting = 36; Prob = 24%
+Detect Pipe; Counting = 37; Prob = 24%
+Detect Pipe; Counting = 38; Prob = 24%
+Detect Pipe; Counting = 39; Prob = 24%
+Detect Pipe; Counting = 40; Prob = 23%
+Detect Pipe; Counting = 41; Prob = 23%
+Detect Pipe; Counting = 42; Prob = 23%
+Detect Pipe; Counting = 43; Prob = 22%
+Detect Pipe; Counting = 44; Prob = 21%
+Detect Pipe; Counting = 45; Prob = 21%
+Detect Pipe; Counting = 46; Prob = 20%
+Detect Pipe; Counting = 47; Prob = 20%
+Detect Pipe; Counting = 48; Prob = 20%
+ Used GPU 0 
+net.optimized_memory = 0 
+mini_batch = 1, batch = 8, time_steps = 1, train = 0 
+Create CUDA-stream - 0 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+
+ seen 64, trained: 13 K-images (0 Kilo-batches_64) 
+
+ try to allocate additional workspace_size = 235.93 MB 
+ CUDA allocate done! 
+ Time: 0.363838 sec 
+Detect Pipe; Counting = 1; Prob = 68%
+Detect Pipe; Counting = 2; Prob = 67%
+Detect Pipe; Counting = 3; Prob = 60%
+Detect Pipe; Counting = 4; Prob = 57%
+Detect Pipe; Counting = 5; Prob = 55%
+Detect Pipe; Counting = 6; Prob = 55%
+Detect Pipe; Counting = 7; Prob = 53%
+Detect Pipe; Counting = 8; Prob = 53%
+Detect Pipe; Counting = 9; Prob = 52%
+Detect Pipe; Counting = 10; Prob = 51%
+Detect Pipe; Counting = 11; Prob = 50%
+Detect Pipe; Counting = 12; Prob = 49%
+Detect Pipe; Counting = 13; Prob = 48%
+Detect Pipe; Counting = 14; Prob = 48%
+Detect Pipe; Counting = 15; Prob = 47%
+Detect Pipe; Counting = 16; Prob = 45%
+Detect Pipe; Counting = 17; Prob = 43%
+Detect Pipe; Counting = 18; Prob = 42%
+Detect Pipe; Counting = 19; Prob = 41%
+Detect Pipe; Counting = 20; Prob = 41%
+Detect Pipe; Counting = 21; Prob = 41%
+Detect Pipe; Counting = 22; Prob = 39%
+Detect Pipe; Counting = 23; Prob = 39%
+Detect Pipe; Counting = 24; Prob = 38%
+Detect Pipe; Counting = 25; Prob = 37%
+Detect Pipe; Counting = 26; Prob = 37%
+Detect Pipe; Counting = 27; Prob = 37%
+Detect Pipe; Counting = 28; Prob = 36%
+Detect Pipe; Counting = 29; Prob = 36%
+Detect Pipe; Counting = 30; Prob = 35%
+Detect Pipe; Counting = 31; Prob = 35%
+Detect Pipe; Counting = 32; Prob = 35%
+Detect Pipe; Counting = 33; Prob = 33%
+Detect Pipe; Counting = 34; Prob = 31%
+Detect Pipe; Counting = 35; Prob = 31%
+Detect Pipe; Counting = 36; Prob = 31%
+Detect Pipe; Counting = 37; Prob = 31%
+Detect Pipe; Counting = 38; Prob = 31%
+Detect Pipe; Counting = 39; Prob = 30%
+Detect Pipe; Counting = 40; Prob = 30%
+Detect Pipe; Counting = 41; Prob = 29%
+Detect Pipe; Counting = 42; Prob = 28%
+Detect Pipe; Counting = 43; Prob = 27%
+Detect Pipe; Counting = 44; Prob = 27%
+Detect Pipe; Counting = 45; Prob = 26%
+Detect Pipe; Counting = 46; Prob = 26%
+Detect Pipe; Counting = 47; Prob = 26%
+Detect Pipe; Counting = 48; Prob = 26%
+Detect Pipe; Counting = 49; Prob = 26%
+Detect Pipe; Counting = 50; Prob = 26%
+Detect Pipe; Counting = 51; Prob = 25%
+Detect Pipe; Counting = 52; Prob = 25%
+Detect Pipe; Counting = 53; Prob = 25%
+Detect Pipe; Counting = 54; Prob = 24%
+Detect Pipe; Counting = 55; Prob = 24%
+Detect Pipe; Counting = 56; Prob = 24%
+Detect Pipe; Counting = 57; Prob = 22%
+Detect Pipe; Counting = 58; Prob = 22%
+Detect Pipe; Counting = 59; Prob = 21%
+Detect Pipe; Counting = 60; Prob = 21%
+ Used GPU 0 
+net.optimized_memory = 0 
+mini_batch = 1, batch = 8, time_steps = 1, train = 0 
+Create CUDA-stream - 0 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+
+ seen 64, trained: 13 K-images (0 Kilo-batches_64) 
+
+ try to allocate additional workspace_size = 235.93 MB 
+ CUDA allocate done! 
+ Time: 0.352294 sec 
+Detect Pipe; Counting = 1; Prob = 85%
+Detect Pipe; Counting = 2; Prob = 84%
+Detect Pipe; Counting = 3; Prob = 83%
+Detect Pipe; Counting = 4; Prob = 81%
+Detect Pipe; Counting = 5; Prob = 79%
+ Used GPU 0 
+net.optimized_memory = 0 
+mini_batch = 1, batch = 8, time_steps = 1, train = 0 
+Create CUDA-stream - 0 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+
+ seen 64, trained: 13 K-images (0 Kilo-batches_64) 
+
+ try to allocate additional workspace_size = 235.93 MB 
+ CUDA allocate done! 
+ Time: 0.361243 sec 
+Detect Pipe; Counting = 1; Prob = 84%
+Detect Pipe; Counting = 2; Prob = 84%
+Detect Pipe; Counting = 3; Prob = 84%
+Detect Pipe; Counting = 4; Prob = 83%
+Detect Pipe; Counting = 5; Prob = 83%
+Detect Pipe; Counting = 6; Prob = 83%
+Detect Pipe; Counting = 7; Prob = 83%
+Detect Pipe; Counting = 8; Prob = 82%
+Detect Pipe; Counting = 9; Prob = 82%
+Detect Pipe; Counting = 10; Prob = 82%
+Detect Pipe; Counting = 11; Prob = 82%
+Detect Pipe; Counting = 12; Prob = 82%
+Detect Pipe; Counting = 13; Prob = 82%
+Detect Pipe; Counting = 14; Prob = 82%
+Detect Pipe; Counting = 15; Prob = 81%
+Detect Pipe; Counting = 16; Prob = 81%
+Detect Pipe; Counting = 17; Prob = 81%
+Detect Pipe; Counting = 18; Prob = 81%
+Detect Pipe; Counting = 19; Prob = 80%
+Detect Pipe; Counting = 20; Prob = 80%
+Detect Pipe; Counting = 21; Prob = 80%
+Detect Pipe; Counting = 22; Prob = 80%
+Detect Pipe; Counting = 23; Prob = 80%
+Detect Pipe; Counting = 24; Prob = 80%
+Detect Pipe; Counting = 25; Prob = 79%
+Detect Pipe; Counting = 26; Prob = 79%
+Detect Pipe; Counting = 27; Prob = 78%
+Detect Pipe; Counting = 28; Prob = 78%
+Detect Pipe; Counting = 29; Prob = 78%
+Detect Pipe; Counting = 30; Prob = 78%
+Detect Pipe; Counting = 31; Prob = 78%
+Detect Pipe; Counting = 32; Prob = 78%
+Detect Pipe; Counting = 33; Prob = 77%
+Detect Pipe; Counting = 34; Prob = 77%
+Detect Pipe; Counting = 35; Prob = 76%
+Detect Pipe; Counting = 36; Prob = 76%
+Detect Pipe; Counting = 37; Prob = 76%
+Detect Pipe; Counting = 38; Prob = 76%
+Detect Pipe; Counting = 39; Prob = 75%
+Detect Pipe; Counting = 40; Prob = 75%
+Detect Pipe; Counting = 41; Prob = 75%
+Detect Pipe; Counting = 42; Prob = 75%
+Detect Pipe; Counting = 43; Prob = 74%
+Detect Pipe; Counting = 44; Prob = 73%
+Detect Pipe; Counting = 45; Prob = 72%
+Detect Pipe; Counting = 46; Prob = 72%
+Detect Pipe; Counting = 47; Prob = 72%
+Detect Pipe; Counting = 48; Prob = 71%
+Detect Pipe; Counting = 49; Prob = 71%
+Detect Pipe; Counting = 50; Prob = 70%
+Detect Pipe; Counting = 51; Prob = 69%
+Detect Pipe; Counting = 52; Prob = 66%
+Detect Pipe; Counting = 53; Prob = 57%
+ Used GPU 0 
+net.optimized_memory = 0 
+mini_batch = 1, batch = 8, time_steps = 1, train = 0 
+Create CUDA-stream - 0 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+
+ seen 64, trained: 13 K-images (0 Kilo-batches_64) 
+
+ try to allocate additional workspace_size = 235.93 MB 
+ CUDA allocate done! 
+ Time: 0.361248 sec 
+Detect Pipe; Counting = 1; Prob = 86%
+Detect Pipe; Counting = 2; Prob = 86%
+Detect Pipe; Counting = 3; Prob = 86%
+Detect Pipe; Counting = 4; Prob = 85%
+Detect Pipe; Counting = 5; Prob = 85%
+Detect Pipe; Counting = 6; Prob = 85%
+Detect Pipe; Counting = 7; Prob = 85%
+Detect Pipe; Counting = 8; Prob = 85%
+Detect Pipe; Counting = 9; Prob = 85%
+Detect Pipe; Counting = 10; Prob = 85%
+Detect Pipe; Counting = 11; Prob = 85%
+Detect Pipe; Counting = 12; Prob = 85%
+Detect Pipe; Counting = 13; Prob = 85%
+Detect Pipe; Counting = 14; Prob = 85%
+Detect Pipe; Counting = 15; Prob = 85%
+Detect Pipe; Counting = 16; Prob = 85%
+Detect Pipe; Counting = 17; Prob = 84%
+Detect Pipe; Counting = 18; Prob = 84%
+Detect Pipe; Counting = 19; Prob = 84%
+Detect Pipe; Counting = 20; Prob = 84%
+Detect Pipe; Counting = 21; Prob = 84%
+Detect Pipe; Counting = 22; Prob = 84%
+Detect Pipe; Counting = 23; Prob = 84%
+Detect Pipe; Counting = 24; Prob = 84%
+Detect Pipe; Counting = 25; Prob = 84%
+Detect Pipe; Counting = 26; Prob = 84%
+Detect Pipe; Counting = 27; Prob = 84%
+Detect Pipe; Counting = 28; Prob = 84%
+Detect Pipe; Counting = 29; Prob = 84%
+Detect Pipe; Counting = 30; Prob = 84%
+Detect Pipe; Counting = 31; Prob = 84%
+Detect Pipe; Counting = 32; Prob = 84%
+Detect Pipe; Counting = 33; Prob = 84%
+Detect Pipe; Counting = 34; Prob = 84%
+Detect Pipe; Counting = 35; Prob = 84%
+Detect Pipe; Counting = 36; Prob = 84%
+Detect Pipe; Counting = 37; Prob = 84%
+Detect Pipe; Counting = 38; Prob = 84%
+Detect Pipe; Counting = 39; Prob = 84%
+Detect Pipe; Counting = 40; Prob = 83%
+Detect Pipe; Counting = 41; Prob = 83%
+Detect Pipe; Counting = 42; Prob = 83%
+Detect Pipe; Counting = 43; Prob = 83%
+Detect Pipe; Counting = 44; Prob = 83%
+Detect Pipe; Counting = 45; Prob = 83%
+Detect Pipe; Counting = 46; Prob = 83%
+Detect Pipe; Counting = 47; Prob = 83%
+Detect Pipe; Counting = 48; Prob = 83%
+Detect Pipe; Counting = 49; Prob = 83%
+Detect Pipe; Counting = 50; Prob = 83%
+Detect Pipe; Counting = 51; Prob = 83%
+Detect Pipe; Counting = 52; Prob = 82%
+Detect Pipe; Counting = 53; Prob = 82%
+Detect Pipe; Counting = 54; Prob = 82%
+Detect Pipe; Counting = 55; Prob = 82%
+Detect Pipe; Counting = 56; Prob = 82%
+Detect Pipe; Counting = 57; Prob = 81%
+Detect Pipe; Counting = 58; Prob = 81%
+Detect Pipe; Counting = 59; Prob = 81%
+Detect Pipe; Counting = 60; Prob = 81%
+Detect Pipe; Counting = 61; Prob = 81%
+ Used GPU 0 
+net.optimized_memory = 0 
+mini_batch = 1, batch = 8, time_steps = 1, train = 0 
+Create CUDA-stream - 0 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+ Used GPU 0 
+net.optimized_memory = 0 
+mini_batch = 1, batch = 8, time_steps = 1, train = 0 
+Create CUDA-stream - 0 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+nms_kind: diounms (2), beta = 0.600000 
+
+ seen 64, trained: 13 K-images (0 Kilo-batches_64) 
+
+ try to allocate additional workspace_size = 235.93 MB 
+ CUDA allocate done! 
+ Time: 0.369327 sec 
+Detect Pipe; Counting = 1; Prob = 87%
+Detect Pipe; Counting = 2; Prob = 87%
+Detect Pipe; Counting = 3; Prob = 87%
+Detect Pipe; Counting = 4; Prob = 86%
+Detect Pipe; Counting = 5; Prob = 86%
+Detect Pipe; Counting = 6; Prob = 86%
+Detect Pipe; Counting = 7; Prob = 86%
+Detect Pipe; Counting = 8; Prob = 86%
+Detect Pipe; Counting = 9; Prob = 85%
+Detect Pipe; Counting = 10; Prob = 85%
+Detect Pipe; Counting = 11; Prob = 85%
+Detect Pipe; Counting = 12; Prob = 85%
+Detect Pipe; Counting = 13; Prob = 85%
+Detect Pipe; Counting = 14; Prob = 83%
