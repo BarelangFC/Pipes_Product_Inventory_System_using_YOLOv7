@@ -27,22 +27,18 @@ class buka_ui(QMainWindow):
 # start button
     def start_button_clicked(self):
         print('start button clicked')
-
         args = darknet_images.parser()
         darknet_images.check_arguments_errors(args)
-        darknet_images.random.seed(4)  # deterministic bbox colors
-            
+        darknet_images.random.seed(4)  # deterministic bbox colors            
         darknet_images.network, class_names, class_colors = darknet.load_network(
             args.config_file,
             args.data_file,
             args.weights,
             batch_size=args.batch_size
-        )
-            
+        )            
         images = darknet_images.load_images(args.input)
         # print(images)
-        index = 0
-       
+        index = 0       
         while True:
             index+=1
             if args.input:
@@ -56,8 +52,6 @@ class buka_ui(QMainWindow):
         image, detections = darknet_images.image_detection(darknet_images.image_name, darknet_images.network, class_names, class_colors, args.thresh)
         # if args.save_labels:
         #     darknet_images.save_annotations(image_name, image, detections, class_names)
-        
-        
         # print("Count: ", len(detections))
         self.counter = len(detections)
         # if not args.dont_show:
